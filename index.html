@@ -9,7 +9,7 @@
     
     <style>
         :root { --pink: #ff4d6d; --gold: #ffb703; }
-        body { margin: 0; font-family: 'Arial', sans-serif; background: #000; color: white; overflow-x: hidden; }
+        body { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background: fff0f3; color: white; overflow-x: hidden; width: 100%; text-align: centre; }
         
         #unlock-screen {
             position: fixed; inset: 0; 
@@ -24,7 +24,9 @@
         #countdown { display: none; position: fixed; inset: 0; background: #000; font-size: 100px; color: var(--gold); align-items: center; justify-content: center; z-index: 999; font-weight: bold; }
 
         #main-content { 
-            display: none; 
+            display: none;
+            width: 100%;
+            overflow: hidden;
             padding: 20px; 
             text-align: center; 
             background: linear-gradient(180deg, #4a0404 0%, #ff4d6d 100%);
@@ -157,10 +159,10 @@
     <div class="card-content animate__animated animate__zoomIn">
         <h2>Meri Priyanshi ke liye... ❤️</h2>
         <p>
-            "Priyanshi, tum sirf meri patni nahi, meri rooh ka hissa ho. 
-            Zindagi mein bahut log aaye aur gaye, par tumne aakar meri duniya ko jannat bana diya. 
-            Tumhari muskurahat meri sabse badi taqat hai. Aaj tumhare janamdin par main bas yahi kehna chahta hoon ki main tumse apni aakhri saans tak mohabbat karunga. 
-            Har dard mein, har khushi mein, main humesha tumhare saath khada rahoonga. 
+            "Priyuu..., Tum meri zindagi ka sabse khoobsurat hissa ho
+            tumne mujhe jitna pyaar diya hai utna to main deserve bhi nhi karta, jab se tum aayi ho merizindagi mehak uthi hai
+            tumhare mere saath hone se mujhe ek alag hi himmat milti hai, bas hamesha mere saath rehna
+            or mujhe sambhalte rehna,main tumhare bina nahi jee sakta.
             I Love You so much, meri jaan!"
         </p>
         <button class="close-card" onclick="closeCard()">Close with Love ❤️</button>
@@ -170,7 +172,7 @@
         <button id="cake-btn" onclick="showCake()" style="background:var(--gold); padding:18px 40px; border-radius:50px; font-weight:bold; cursor:pointer; font-size: 20px; border:none; margin-bottom: 50px;">Cut Cake 🎂</button>
         <div id="cake-section" style="display:none; margin-top:30px; padding-bottom: 100px;">
             <span style="font-size:120px; cursor:pointer;" onclick="confettiBlast()">🎂</span>
-            <h2 style="color:var(--gold); font-size: 30px;">Happy Birthday Baccha! 🥳</h2>
+            <h2 style="color:var(--gold); font-size: 30px;">Happy Birthday Meri Madam jii! 🥳</h2>
         </div>
     </div>
 
@@ -268,6 +270,7 @@ function closeCard() {
 </body>
 
 </html>
+
 
 
 
