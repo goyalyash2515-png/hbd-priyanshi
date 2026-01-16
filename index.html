@@ -31,8 +31,8 @@
             min-height: 100vh;
         }
         
-        .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px auto; max-width: 900px; }
-        .photo-frame { width: 100%; height: auto; max-height: 500px; border: 5px solid white; border-radius: 15px; object-fit: contain; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px auto; max-width: 900px; }
+        .photo-frame { width: 100%; height: 250px; max-height: 500px; border: 4px solid white; border-radius: 15px; object-fit: cover; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
         .shayari-box { grid-column: 1 / span 2; padding: 35px 15px; font-style: italic; font-size: 24px; color: var(--gold); text-shadow: 2px 2px 5px #000; font-weight: bold; line-height: 1.5; }
 
         .balloon { position: fixed; bottom: -100px; width: 40px; height: 50px; border-radius: 50%; z-index: 998; animation: floatUp 8s linear forwards; }
@@ -42,6 +42,59 @@
         @keyframes animateHeart { 0% { transform: translateY(105vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
 
         @media (max-width: 600px) { .photo-grid { grid-template-columns: 1fr; } .shayari-box { font-size: 18px; } }
+
+        /* Special Message Button */
+.msg-btn-container { margin: 40px 0; }
+.special-msg-btn {
+    background: #fff;
+    color: var(--pink);
+    border: 2px solid var(--pink);
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.4);
+    transition: 0.3s;
+}
+
+/* Modal/Card Background */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The Emotional Card */
+.card-content {
+    background: white;
+    color: #333;
+    width: 85%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    border: 5px solid var(--pink);
+    box-shadow: 0 0 30px var(--pink);
+}
+
+.card-content h2 { color: var(--pink); font-family: 'Georgia', serif; }
+.card-content p { font-size: 18px; line-height: 1.6; font-style: italic; }
+.close-card { 
+    margin-top: 20px;
+    background: var(--pink);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+   
     </style>
 </head>
 <body>
@@ -94,7 +147,25 @@
                 Mujhe tumse har baar mohabbat ho jati hai.<br>
                 Janamdin Mubarak ho meri pyaari si penguin ko!"
             </div>
-        </div>
+            <div class="msg-btn-container">
+    <button class="special-msg-btn animate__animated animate__pulse animate__infinite" onclick="openCard()">
+        Ek Special Message Tumhare Liye 💌
+    </button>
+</div>
+
+<div id="msgModal" class="modal">
+    <div class="card-content animate__animated animate__zoomIn">
+        <h2>Meri Priyanshi ke liye... ❤️</h2>
+        <p>
+            "Priyanshi, tum sirf meri patni nahi, meri rooh ka hissa ho. 
+            Zindagi mein bahut log aaye aur gaye, par tumne aakar meri duniya ko jannat bana diya. 
+            Tumhari muskurahat meri sabse badi taqat hai. Aaj tumhare janamdin par main bas yahi kehna chahta hoon ki main tumse apni aakhri saans tak mohabbat karunga. 
+            Har dard mein, har khushi mein, main humesha tumhare saath khada rahoonga. 
+            I Love You so much, meri jaan!"
+        </p>
+        <button class="close-card" onclick="closeCard()">Close with Love ❤️</button>
+     </div>
+ </div>
 
         <button id="cake-btn" onclick="showCake()" style="background:var(--gold); padding:18px 40px; border-radius:50px; font-weight:bold; cursor:pointer; font-size: 20px; border:none; margin-bottom: 50px;">Cut Cake 🎂</button>
         <div id="cake-section" style="display:none; margin-top:30px; padding-bottom: 100px;">
@@ -182,6 +253,14 @@
             confettiBlast();
         }
 
+        function openCard() { 
+    document.getElementById('msgModal').style.display = 'flex'; 
+    confetti({particleCount:150, spread:70}); 
+}
+function closeCard() { 
+    document.getElementById('msgModal').style.display = 'none'; 
+}
+
         function confettiBlast() {
             confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
         }
@@ -189,5 +268,6 @@
 </body>
 
 </html>
+
 
 
